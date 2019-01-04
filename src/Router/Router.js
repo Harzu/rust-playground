@@ -3,7 +3,7 @@ import { Header } from '../Components/Header'
 import { Footer } from '../Components/Footer'
 import { Wrapper } from '../Style/CommonStyle'
 import { Router, Route, Switch } from 'react-router-dom'
-import { RoadPage, SandboxPage } from '../Pages'
+import { SandboxPage } from '../Pages'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 
@@ -12,13 +12,7 @@ import history from './History'
 export const routes = [
   {
     path: '/',
-    name: 'Road to rust',
-    exact: true,
-    component: RoadPage
-  },
-  {
-    path: '/playground',
-    name: 'Try it out',
+    name: 'Playground',
     exact: true,
     component: SandboxPage
   }

@@ -14,28 +14,30 @@ import { changeCodeValue } from '../../Action'
 class Editor extends Component {
   constructor(props) {
     super(props)
+    this.state = { value: this.props.sandbox[0].value }
   }
 
-  showValue() {
-    return this.props.sandbox.value
+  componentWillReceiveProps(nextProps) {
+    this.setState({ value: nextProps.sandbox[0].value })
   }
 
   render() {
-    console.log(this)
     return (
       <EditorWrapper className={this.props.className}>
         <AceEditor
           mode="rust"
           theme="twilight"
+          refs="editor"
           name="playground"
-          onChange={changeCodeValue}
+          onChange={this.props.changeCodeValue}
           width={'100%'}
           height={'100%'}
           fontSize={18}
           showPrintMargin={true}
           showGutter={true}
           highlightActiveLine={true}
-          value={this.showValue()}
+          value={this.state.value}
+          editorProps={{ $blockScrolling: true }}
           setOptions={{
             enableBasicAutocompletion: true,
             enableLiveAutocompletion: true,
@@ -49,14 +51,14 @@ class Editor extends Component {
   }
 }
 
-function mapState(state) {
+function mapStateToProps(state) {
   return {
-    sandbox: state.sandBox[0]
+    sandbox: state.sandBox
   }
 }
 
-function mapDispatchToProps(dispatch) {
+function matchDispatchToProps(dispatch) {
   return bindActionCreators({ changeCodeValue }, dispatch)
 }
 
-export default connect(mapState, mapDispatchToProps)(Editor)
+export default connect(mapStateToProps, matchDispatchToProps)(Editor)
