@@ -1,7 +1,13 @@
 export const changeCodeValue = value => {
-  console.log(value)
   return {
-    type: 'CHNAGE_CODE',
+    type: 'SET_CODE_VALUE',
     payload: value
   }
 }
+
+export const getCodeValue = () => {
+  return {
+    type: 'GET_CODE_VALUE',
+    payload: null
+  }
+} 
