@@ -10,6 +10,8 @@
 
 # production
 /build
+/compiler/outputDirectory
+/compiler/target
 
 # misc
 .DS_Store
