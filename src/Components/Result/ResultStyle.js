@@ -20,6 +20,13 @@ export const ResultWrapper = styled.section`
   }
 `
 
+export const ResultOutput = styled.div`
+  padding: ${rem('20px')};
+  min-width: 90%;
+  background-color: ${Colors.resultOutput};
+  color: ${Colors.resultOutText}
+`
+
 export const Buttons = styled.div`
   position: absolute;
   bottom: 20px;
