@@ -5,9 +5,9 @@ export const changeCodeValue = value => {
   }
 }
 
-export const getCodeValue = () => {
+export const changeResultValue = value => {
   return {
-    type: 'GET_CODE_VALUE',
-    payload: null
+    type: 'SET_RESULT_VALUE',
+    payload: value
   }
-} 
+}

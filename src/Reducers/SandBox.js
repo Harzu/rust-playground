@@ -1,5 +1,6 @@
 const defaultState = [{
-  value: `fn main() {\n    // ...code\n}`
+  value: `fn main() {\n    // ...code\n}`,
+  resultValue: ''
 }]
 
 export default function (state = defaultState, action) {
@@ -7,8 +8,9 @@ export default function (state = defaultState, action) {
     case 'SET_CODE_VALUE':
       state[0].value = action.payload
       return [ ...state ]
-    case 'GET_CODE_VALUE':
-      return state[0].value
+    case 'GET_RESULT_VALUE':
+      state[0].resultValue = action.payload
+      return [ ...state ]
     default:
       return [ ...state ]
   }
